@@ -21,7 +21,6 @@ fn main() {
         .read_line(&mut guess)
         .expect("Failed to read line.");
     // {} is a placeholder for the value of guess, think crab claws holding the value.
-    println!("You guessed: {guess}");
 
     // Shadowing(?) the guess variable with a new one, this time with a different type.
     let guess: u32 = match guess.trim().parse() {
@@ -32,13 +31,13 @@ fn main() {
     println!("You guessed: {guess}");
 
     // start infinite loop, with a break point
-        println!("Please input your guess.");
-
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
             Ordering::Equal => {
                 println!("You win!");
+                // Press any key to exit the program.
+                
                 break;
             }
         }
